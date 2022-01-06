@@ -2,7 +2,9 @@
 A python program that causes your computer to bluescreen whenever you die in Minecraft
 
 # Requirements
-Don't Die only works on Windows right now, but I thinking about porting it to other operating systems
+***Be sure to right click and run this program as administrator or else it won't work!***
+
+Don't Die only works on Windows right now, but I'm thinking about porting it to other operating systems
 
 Requires Python 3.9 or later to run
 
@@ -19,6 +21,8 @@ Download the latest executable
  - Install python dependencies
 `pip install -r requirements.txt`
  - Run Don't Die
+ 
+ ***Make sure you run cmd as administrator or else the computer will not bluescreen***
  - `python dontdie.py`
 
 

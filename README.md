@@ -38,4 +38,8 @@ Download the latest executable
 
 Executable is available at `dist/dontdie.exe`
 
- 
+
+# Other Notes
+I didn't write Don't Die in a very efficient way, and I am probably going to completely overhaul it later
+There are a few things I'd like to change, specifically in how it detects deaths
+I might even turn it into a Minecraft mod later, as python really isn't the best way to interface with Minecraft

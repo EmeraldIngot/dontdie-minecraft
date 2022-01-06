@@ -30,7 +30,7 @@ Download the latest executable
  `pip install pyinstaller`
 
  - Build executable
- `pyinstaller --onefile dontdie.py`
+ `pyinstaller --onefile --icon dontdie.ico dontdie.py`
 
 Executable is available at `dist/dontdie.exe`
 

@@ -11,7 +11,9 @@ Requires Python 3.9 or later to run
 # Installation Instructions
 **Option 1: Download from releases**
 Go to https://github.com/EmeraldIngot/dontdie-minecraft/releases
-Download the latest executable
+
+download the latest executable
+
 
 **Option 2: Run from source**
 

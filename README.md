@@ -17,13 +17,25 @@ download the latest executable
 
 **Option 2: Run from source**
 
+Make sure you have python for windows installed
+
+Open CMD
+
  - Download source
-  
- `git clone https://github.com/EmeraldIngot/dontdie-minecraft.git`
  
- - Move into the directory
+ If you have git for windows installed then 
+
+ `git clone https://github.com/EmeraldIngot/dontdie-minecraft.git & cd dontdie-minecraft`
  
- `cd dontdie-minecraft`
+ otherwise, just download the source zip file and extract it
+ 
+ - If you downloaded the source zip folder, move into the directory by typing
+ 
+ `cd dontdie-minecraft-master`
+ 
+ Run `dir` to make sure you are in the right directory
+ 
+ If returns a bunch of stuff like dontdie.py and dontdie.ico, then you're good to go
  
  - Install python dependencies
   

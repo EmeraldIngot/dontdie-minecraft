@@ -17,6 +17,7 @@ Download the latest executable
 
  - Download source:
  `git clone https://github.com/EmeraldIngot/dontdie-minecraft.git`
+ 
  `cd dontdie-minecraft`
  - Install python dependencies
 `pip install -r requirements.txt`

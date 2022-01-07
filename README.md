@@ -6,7 +6,9 @@ A python program that causes your computer to bluescreen whenever you die in Min
 
 Don't Die only works on Windows right now, but I'm thinking about porting it to other operating systems
 
-Requires Python 3.9 or later to run
+No requirements to run executable
+
+Requires Python 3.9 or later to build from source
 
 # Installation Instructions
 **Option 1: Download from releases**

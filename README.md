@@ -15,16 +15,23 @@ Download the latest executable
 
 **Option 2: Run from source**
 
- - Download source:
+ - Download source
+  
  `git clone https://github.com/EmeraldIngot/dontdie-minecraft.git`
  
+ - Move into the directory
+ 
  `cd dontdie-minecraft`
+ 
  - Install python dependencies
+  
 `pip install -r requirements.txt`
+
  - Run Don't Die
  
  ***Make sure you run cmd as administrator or else the computer will not bluescreen***
- - `python dontdie.py`
+ 
+ `python dontdie.py`
 
 
 # Build Instructions

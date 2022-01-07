@@ -39,9 +39,11 @@ Download the latest executable
  - Follow instructions to run from source
  
  - Install pyinstaller
+ 
  `pip install pyinstaller`
 
  - Build executable
+ 
  `pyinstaller --onefile --icon dontdie.ico dontdie.py`
 
 Executable is available at `dist/dontdie.exe`

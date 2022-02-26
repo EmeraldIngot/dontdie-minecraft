@@ -1,6 +1,9 @@
 # Don't Die - A Python Program
 A python program that causes your computer to bluescreen whenever you die in Minecraft
 
+# What I'm working on now 
+I'm working on turning it into a minecraft mod, and then adding mac and linux support
+
 # Requirements
 ***Be sure to right click and run this program as administrator or else it won't work!***
 
@@ -69,5 +72,3 @@ Executable is available at `dist/dontdie.exe`
 I didn't write Don't Die in a very efficient way, and I am probably going to completely overhaul it later
 
 There are a few things I'd like to change, specifically in how it detects deaths
-
-I might even turn it into a Minecraft mod later, as python really isn't the best way to interface with Minecraft

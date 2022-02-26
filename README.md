@@ -4,6 +4,8 @@ A python program that causes your computer to bluescreen whenever you die in Min
 # What I'm working on now 
 I'm working on turning it into a minecraft mod, and then adding mac and linux support
 
+Most of my modding experience is with fabric, but I will try to make a version for forge too
+
 # Requirements
 ***Be sure to right click and run this program as administrator or else it won't work!***
 

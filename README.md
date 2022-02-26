@@ -2,7 +2,11 @@
 A python program that causes your computer to bluescreen whenever you die in Minecraft
 
 # What I'm working on now 
-I'm working on turning it into a minecraft mod, and then adding mac and linux support
+I'm working on turning it into a minecraft mod
+
+I would like to add mac and linux support, but neither have a way like windows
+to cause a bluescreen without admin privilages.
+The only other thing I can think of is maybe a fork bomb on linux, but that wouldn't do the same thing
 
 Most of my modding experience is with fabric, but I will try to make a version for forge too
 

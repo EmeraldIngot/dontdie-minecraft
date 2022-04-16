@@ -36,13 +36,15 @@ Open CMD
  
  If you have git for windows installed then 
 
- `git clone https://github.com/EmeraldIngot/dontdie-minecraft.git & cd dontdie-minecraft`
+ `git clone https://github.com/EmeraldIngot/dontdie-minecraft.git`
+ `cd dontdie-minecraft`
  
  otherwise, just download the source zip file and extract it
  
  - If you downloaded the source zip folder, move into the directory by typing
  
  `cd dontdie-minecraft-master`
+ from where you extracted it to
  
  Run `dir` to make sure you are in the right directory
  

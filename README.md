@@ -10,6 +10,12 @@ The only other thing I can think of is maybe a fork bomb on linux, but that woul
 
 Most of my modding experience is with fabric, but I will try to make a version for forge too
 
+UPDATE: Finished the Forge version of the mod, but I have to update it to 1.18.2
+
+Still testing it
+
+Fabric doesn't seem to have any way to detect deaths, so I'm not sure there will be a Fabric version
+
 # Requirements
 ***Be sure to right click and run this program as administrator or else it won't work!***
 

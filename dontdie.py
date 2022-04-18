@@ -141,9 +141,13 @@ if __name__ == "__main__":
             index = line.find("YOU DIED!")
             detectdeath()
             # Other Hypixel
-            index = line.find(" was thrown into the void ")
+            index = line.find(playername + " was thrown into the void ")
             detectdeath()
-            index = line.find(" fell to ")
+            index = line.find(playername + " fell to ")
+            detectdeath()                         
+            index = line.find("You fell into the void")
+            detectdeath()
+            index = line.find(playername + " fell into the void")
             detectdeath()                         
 
             print(index)

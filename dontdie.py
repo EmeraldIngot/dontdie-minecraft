@@ -37,7 +37,7 @@ if __name__ == "__main__":
     print("Ready! You better not die ;)")
     for line in loglines:
         print(line)
-        if "[Render thread/INFO]: [CHAT]" in line:
+        if "[Render thread/INFO]: [System] [CHAT]" in line:
             def detectdeath():
                 if index != -1:
                     print("crashcpu")
@@ -135,6 +135,8 @@ if __name__ == "__main__":
             index = line.find(playername + " tried to swim ")
             detectdeath()
             index = line.find(playername + " exploded ")
+            detectdeath()
+            index = line.find(playername + " was obliterated by ")
             detectdeath()
             # Hypixel Death Messages
             # Murder Mystery

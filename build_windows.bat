@@ -1,3 +1,3 @@
 @echo off
 
-pyinstaller "dontdie-windows.spec"
+pyinstaller "dontdie-windows.spec" "--noconsole"

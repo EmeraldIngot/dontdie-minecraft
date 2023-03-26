@@ -1,1 +1,1 @@
-pyinstaller dontdie-linux.spec
+pyinstaller dontdie-linux.spec --noconsole

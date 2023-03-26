@@ -1,1 +1,1 @@
-pyinstaller dontdie-macos-spec
+pyinstaller dontdie-macos.spec --noconsole

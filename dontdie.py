@@ -11,6 +11,8 @@ from dontdieui import Ui_MainWindow as DontDie_MainWindow
 import shutil
 import multiprocess
 
+if getattr(sys, "frozen", False):
+    multiprocess.freeze_support()
 
 global playername
 global close

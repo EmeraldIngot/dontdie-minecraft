@@ -1,6 +1,8 @@
 # Don't Die - A Python Program
 A python program that causes your computer to bluescreen whenever you die in Minecraft
 
+# If you want the prerelease with a GUI download it here:
+https://github.com/EmeraldIngot/dontdie-minecraft/releases/tag/v1.3-pre
 
 # Requirements
 ***Be sure to right click and run this program as administrator or else it won't work!***

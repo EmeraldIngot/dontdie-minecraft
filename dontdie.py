@@ -8,9 +8,8 @@ from PyQt6.QtWidgets import QApplication, QMainWindow
 from mb1 import Ui_Form as MB1_Form
 from mb2 import Ui_Form as MB2_Form
 from dontdieui import Ui_MainWindow as DontDie_MainWindow
-from nameinput import Ui_Form as NameUI
 import shutil
-import multiprocessing
+import multiprocess
 
 
 global playername
@@ -20,10 +19,28 @@ global iconpath
 global process
 
 
-if getattr(sys, 'frozen', False):
-    iconpath=os.path.join(sys._MEIPASS, "dontdie.ico")
-else:
-    iconpath="dontdie.ico"
+osplatform = platform.system()
+user = os.getlogin()
+if osplatform == "Linux":
+    if getattr(sys, 'frozen', False):
+        iconpath=os.path.join(sys._MEIPASS, "dontdie.ico")
+    else:
+        iconpath="dontdie.ico" 
+
+if osplatform == "Darwin":
+    if getattr(sys, 'frozen', False):
+        iconpath=os.path.join(sys._MEIPASS, "dontdie.ico")
+    else:
+        iconpath="dontdie.icns"
+
+if osplatform == "Windows":
+    if getattr(sys, 'frozen', False):
+        iconpath=os.path.join(sys._MEIPASS, "dontdie.ico")
+    else:
+        iconpath="dontdie.ico"
+
+
+
 
 
 
@@ -92,14 +109,14 @@ def runlistener(finaldeathlist,version,playername):
     user = os.getlogin()
 
     if osplatform == "Linux":
-        logpath = path.expandvars(r'/home/' + user + '/.minecraft/logs/latest.log')
+        logpath = path.expandvars(os.path.expanduser('~') + '/.minecraft/logs/latest.log')
         crashcmd = "sudo shutdown -h now"
-        datafolder = path.expandvars(r'/home/' + user + '/.dontdie')
+        datafolder = path.expandvars(os.path.expanduser('~') + '/.dontdie')
 
     if osplatform == "Darwin":
         logpath = path.expandvars(r'/Users' + '/Library/Application Support/minecraft/logs/latest.log')
         crashcmd = "sudo killall launchd"
-        datafolder = path.expandvars(r'/Users/' + user + '/Library/Application Support/dontdie')
+        datafolder = path.expandvars(os.path.expanduser('~') + '/Library/Application Support/dontdie')
 
     if osplatform == "Windows":
         appdata=os.getenv("APPDATA")
@@ -109,7 +126,6 @@ def runlistener(finaldeathlist,version,playername):
         datafolder = path.expandvars(r'%LOCALAPPDATA%\dontdie')
 
 
-    
 
     print("playername: " + playername)
 
@@ -189,17 +205,16 @@ class MainApp(QMainWindow, DontDie_MainWindow):
         osplatform = platform.system()
         user = os.getlogin()
         if osplatform == "Linux":
-            datafolder = path.expandvars(r'/home/' + user + '/.dontdie')
+            datafolder = path.expandvars(os.path.expanduser('~') + '/.dontdie')
 
         if osplatform == "Darwin":
-            datafolder = path.expandvars(r'/Users/' + user + '/Library/Application Support/dontdie')
+            datafolder = path.expandvars(os.path.expanduser('~') + '/Library/Application Support/dontdie')
 
         if osplatform == "Windows":
             datafolder = path.expandvars(r'%LOCALAPPDATA%\dontdie')
 
 
-        if not os.path.exists(path.expandvars(datafolder + '/config')):
-            open(path.expandvars(datafolder + '/config'), 'a').close()
+
 
         if os.path.exists(datafolder):
             if os.path.exists(path.expandvars(datafolder + '/userdeathmessages.txt')):
@@ -218,6 +233,8 @@ class MainApp(QMainWindow, DontDie_MainWindow):
             os.mkdir(datafolder)
             shutil.copy(deathmessagefile, path.expandvars(datafolder + '/userdeathmessages.txt'))
 
+        if not os.path.exists(path.expandvars(datafolder + '/config')):
+            open(path.expandvars(datafolder + '/config'), 'a').close()
 
         def checkBoxTick():
             if self.checkBox.isChecked():
@@ -361,7 +378,7 @@ class MainApp(QMainWindow, DontDie_MainWindow):
             if version != 0:
                 self.console.appendPlainText("WARNING! As a side effect of versions older than 1.19.1 not distinguishing between system and user chat messages, players will be able to type '" + playername + " died' in chat and you will bluescreen!")
                 self.console.appendPlainText("It is recommended to use 1.19.1+ versions of minecraft!")
-            process = multiprocessing.Process(target=runlistener, args=(finaldeathlist, version, playername))
+            process = multiprocess.Process(target=runlistener, args=(finaldeathlist, version, playername))
             process.start()
 
         def stop():

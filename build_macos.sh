@@ -1,0 +1,1 @@
+pyinstaller dontdie-macos-spec

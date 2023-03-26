@@ -1,1 +1,2 @@
+multiprocess==0.70.13
 PyQt6==6.4.2

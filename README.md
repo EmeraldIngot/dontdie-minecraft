@@ -13,6 +13,7 @@ Requires Python 3.11 or later to build from source
 
 # Installation Instructions
 **Option 1: Download from releases**
+
 Go to https://github.com/EmeraldIngot/dontdie-minecraft/releases
 
 Download the latest executable for your operating system

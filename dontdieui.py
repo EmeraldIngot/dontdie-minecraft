@@ -227,7 +227,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Minecraft Server Manager"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Don't Die"))
         self.label_3.setText(_translate("MainWindow", " Don\'t Die v1.3"))
         self.stopButton.setText(_translate("MainWindow", "Stop"))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Username</p></body></html>"))

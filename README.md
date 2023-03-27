@@ -44,6 +44,8 @@ If you are on Linux, navigate to the folder containing the binary and run the fo
 
 </details>
 
+### Remember to read the instructions. Heres the download! 
+
 https://github.com/EmeraldIngot/dontdie-minecraft/releases/tag/v1.3-pre
 
 # Requirements

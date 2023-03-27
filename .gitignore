@@ -3,3 +3,5 @@ __pycache__
 buildtest
 nameinput.py
 icns
+build
+dist

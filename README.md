@@ -2,14 +2,15 @@
 A python program that causes your computer to bluescreen whenever you die in Minecraft
 
 # If you want the prerelease with a GUI download it here:
+***Be sure to right click and run this program as administrator or with sudo or else it won't work!***
 https://github.com/EmeraldIngot/dontdie-minecraft/releases/tag/v1.3-pre
 
 # Requirements
-***Be sure to right click and run this program as administrator or else it won't work!***
+***Be sure to right click and run this program as administrator or with sudo or else it won't work!***
 
 Don't Die is now officially supported on Windows, macOS, and Linux!
 
-No requirements to run executable
+No requirements to run binaries
 
 Requires Python 3.11 or later to build from source
 
@@ -74,9 +75,12 @@ Open CMD
 
  - Build executable
  
- `pyinstaller dontdie.spec`
+ `build_windows.bat`
 
 Executable is available at `dist/dontdie.exe`
+
+Rigth click and run with administrator!
+
 </details>
 
 <details open>
@@ -111,7 +115,9 @@ or download the source zip and extract it
 
  - Run Don't Die
  
- ***Make sure you run cmd as administrator or else the computer will not bluescreen***
+ ***Make sure you run python with sudo or login to the root account with `sudo su` first or else the computer will not bluescreen***
+ 
+  you might have to reinstall the python modules as root after doing so
  
  `python dontdie.py`
 
@@ -126,9 +132,11 @@ or download the source zip and extract it
 
  - Build executable
  
- `pyinstaller dontdie.spec`
+ `./build_linux.sh`
 
 Binary is available at `dist/dontdie`
+
+Remember to run with `sudo` or else it won't work!
 </details>
 
 <details open>
@@ -163,7 +171,9 @@ or download the source zip and extract it
 
  - Run Don't Die
  
- ***Make sure you run cmd as administrator or else the computer will not bluescreen***
+ ***Make sure you run python with sudo or log into the root account with `sudo su` before or else the computer will not bluescreen***
+ 
+ you might have to reinstall the python modules as root after doing so
  
  `python dontdie.py`
 
@@ -178,9 +188,12 @@ or download the source zip and extract it
 
  - Build executable
  
- `pyinstaller dontdie.spec`
+ `./build_macos.sh`
 
-Binary is available at `dist/dontdie`
+.app is available at `dist/dontdie`
+
+In order to run as root, go to where the .app is, and run the following command
+sudo ./dontdie.app/Contents/MacOS/dontdie
 </details>
 
 

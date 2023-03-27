@@ -1,8 +1,49 @@
 # Don't Die - A Python Program
 A python program that causes your computer to bluescreen whenever you die in Minecraft
 
-# If you want the prerelease with a GUI download it here:
-***Be sure to right click and run this program as administrator or with sudo or else it won't work!***
+# If you want the prerelease with a GUI read below:
+
+***IMPORTANT Be sure to right click and run this program as administrator or run it with sudo or else it won't work!***
+
+<details>
+<summary>How do I do that?</summary>
+
+# Windows
+
+If you are on Windows, right click on the exe and click run as administrator. If prompted to allow changes, click yes.
+
+# macOS
+
+If you are on macOS, navigate to the folder containing the .app in the terminal, and run the following:
+
+`sudo ./dontdie.app/Contents/MacOS/dontdie`
+
+<details>
+<summary>How do I navigate to the folder in terminal?</summary>
+<br>
+Mount the downloaded DMG file by double clicking it.
+
+Move dontdie.app off of the DMG onto your desktop.
+
+open the terminal and run the following command:
+
+`cd ~/Desktop`
+
+After that, run the command above.
+
+`sudo ./dontdie.app/Contents/MacOS/dontdie`
+
+It will prompt you for your password. It will not indicate you are typing, but you are. Press enter after typing it.
+</details>
+
+# Linux
+
+If you are on Linux, navigate to the folder containing the binary and run the following:
+
+`sudo ./dontdie`
+
+</details>
+
 https://github.com/EmeraldIngot/dontdie-minecraft/releases/tag/v1.3-pre
 
 # Requirements
@@ -24,10 +65,8 @@ Download the latest executable for your operating system
 
 **Option 2: Run from source**
 
-Instructions are not provided here for building on macOS and Linux
 
-
-<details open>
+<details>
 <summary><strong>Windows</strong></summary>
 <br>
 Make sure you have the correct version of python for windows installed (3.11)
@@ -83,7 +122,7 @@ Rigth click and run with administrator!
 
 </details>
 
-<details open>
+<details>
 <summary><strong>Linux</strong></summary>
 <br>
 Make sure you have the correct version of python installed (3.11)
@@ -139,7 +178,7 @@ Binary is available at `dist/dontdie`
 Remember to run with `sudo` or else it won't work!
 </details>
 
-<details open>
+<details>
 <summary><strong>macOS</strong></summary>
 <br>
 Make sure you have the correct version of python for macOS installed (3.11)

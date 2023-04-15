@@ -408,6 +408,7 @@ class MainApp(QMainWindow, DontDie_MainWindow):
 
 
 
+
 window = MainApp()
 window.show()
 

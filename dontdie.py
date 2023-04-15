@@ -19,7 +19,8 @@ global close
 close=0
 global iconpath
 global process
-
+global mainapp
+mainapp = QApplication(sys.argv)
 
 osplatform = platform.system()
 user = os.getlogin()
@@ -44,8 +45,6 @@ if osplatform == "Windows":
 
 
 
-
-
 class MB1(QtWidgets.QWidget, MB1_Form):
     def __init__(self):
 
@@ -66,7 +65,7 @@ class MB1(QtWidgets.QWidget, MB1_Form):
         self.buttonBox.rejected.connect(endfunction)
         app.aboutToQuit.connect(endfunction)
 
-app = QtWidgets.QApplication(sys.argv)
+app = mainapp
 window = MB1()
 window.show()
 UIWindow = MB1()
@@ -96,7 +95,7 @@ class MB2(QtWidgets.QWidget, MB2_Form):
 
 
 
-app2 = QtWidgets.QApplication(sys.argv)
+app2 = mainapp
 window = MB2()
 window.show()
 UIWindow = MB2()
@@ -408,8 +407,6 @@ class MainApp(QMainWindow, DontDie_MainWindow):
         self.checkBox.setEnabled(True)
 
 
-
-mainapp = QApplication(sys.argv)
 
 window = MainApp()
 window.show()

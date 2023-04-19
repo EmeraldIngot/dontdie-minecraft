@@ -7,6 +7,7 @@ from PyQt6.QtGui import QIcon, QPixmap
 from PyQt6.QtWidgets import QApplication, QMainWindow
 from mb1 import Ui_Form as MB1_Form
 from mb2 import Ui_Form as MB2_Form
+from linuxwarn import Ui_Form as LinuxWarnForm
 from dontdieui import Ui_MainWindow as DontDie_MainWindow
 import shutil
 import multiprocess
@@ -44,6 +45,30 @@ if osplatform == "Windows":
 
 
 
+class LinuxWarn(QtWidgets.QWidget, LinuxWarnForm):
+    global close
+    close=0
+    def __init__(self):
+        super(LinuxWarn, self).__init__()
+        #uic.loadUi("linux-warn.ui", self)
+        self.setupUi(self)
+        self.setWindowIcon(QIcon(iconpath))
+        def closefunction():
+            global close
+            close=1
+            self.close()
+        def endfunction():
+            global close
+            if close != 1:
+                print("abort")
+                sys.exit()
+        self.buttonBox.accepted.connect(closefunction)
+        self.buttonBox.rejected.connect(endfunction)
+        app3.aboutToQuit.connect(endfunction)
+
+close=0
+
+
 
 class MB1(QtWidgets.QWidget, MB1_Form):
     def __init__(self):
@@ -65,11 +90,36 @@ class MB1(QtWidgets.QWidget, MB1_Form):
         self.buttonBox.rejected.connect(endfunction)
         app.aboutToQuit.connect(endfunction)
 
-app = mainapp
-window = MB1()
-window.show()
-UIWindow = MB1()
-app.exec()
+
+osplatform = platform.system()
+user = os.getlogin()
+if osplatform == "Linux":
+    datafolder = path.expandvars(os.path.expanduser('~') + '/.dontdie')
+
+if osplatform == "Darwin":
+    datafolder = path.expandvars(os.path.expanduser('~') + '/Library/Application Support/dontdie')
+
+if osplatform == "Windows":
+    datafolder = path.expandvars(r'%LOCALAPPDATA%\dontdie')
+
+
+
+if os.path.exists(datafolder):
+    if os.path.exists(path.expandvars(datafolder + '/userdeathmessages.txt')):
+        deathmessagefile=path.expandvars(datafolder + '/userdeathmessages.txt')
+    else:
+        if getattr(sys, 'frozen', False):
+            deathmessagefile=os.path.join(sys._MEIPASS, "deathmessages.txt")
+        else:
+            deathmessagefile="deathmessages.txt"
+        shutil.copy(deathmessagefile, path.expandvars(datafolder + '/userdeathmessages.txt'))
+else:    
+    if getattr(sys, 'frozen', False):
+        deathmessagefile=os.path.join(sys._MEIPASS, "deathmessages.txt")
+    else:
+        deathmessagefile="deathmessages.txt"
+    os.mkdir(datafolder)
+    shutil.copy(deathmessagefile, path.expandvars(datafolder + '/userdeathmessages.txt'))
 
 
 class MB2(QtWidgets.QWidget, MB2_Form):
@@ -83,6 +133,14 @@ class MB2(QtWidgets.QWidget, MB2_Form):
         def closefunction():
             global close
             close=1
+            with open(path.expandvars(datafolder + '/config'), 'r') as configfile:
+                config = configfile.readlines()
+            if not 2 > len(config):
+                config[1] = "True\n"
+            else:
+                config=[config[0], "True\n"]
+            with open(path.expandvars(datafolder + '/config'), 'w') as configfile:
+                configfile.writelines(config) 
             self.close()
         def endfunction():
             global close
@@ -95,13 +153,61 @@ class MB2(QtWidgets.QWidget, MB2_Form):
 
 
 
-app2 = mainapp
-window = MB2()
-window.show()
-UIWindow = MB2()
-app2.exec()
+
+
+
+
+
+with open(path.expandvars(datafolder + '/config'), 'r') as configfile:
+    config = configfile.readlines()
+if 2 > len(config):
+    app3 = mainapp
+    window = LinuxWarn()
+    window.show()
+    UIWindow = LinuxWarn()
+    app3.exec()
+    if not close==0:
+        time.sleep(0.4)
+        close=0
+        app = mainapp
+        window = MB1()
+        window.show()
+        UIWindow = MB1()
+        app.exec()
+        if not close==0:
+            time.sleep(0.4)
+            close=0
+            app2 = mainapp
+            window = MB2()
+            window.show()
+            UIWindow = MB2()
+            app2.exec()
+if not 2 > len(config):
+    if config[1] == "" or config[1] == "\n":
+        app3 = mainapp
+        window = LinuxWarn()
+        window.show()
+        UIWindow = LinuxWarn()
+        app3.exec()
+        if not close==0:
+            time.sleep(0.4)
+            close=0
+            app = mainapp
+            window = MB1()
+            window.show()
+            UIWindow = MB1()
+            app.exec()
+            if not close==0:
+                time.sleep(0.4)
+                close=0
+                app2 = mainapp
+                window = MB2()
+                window.show()
+                UIWindow = MB2()
+                app2.exec()
     
 close = 0
+
 
 
 def runlistener(finaldeathlist,version,playername):
@@ -215,36 +321,19 @@ class MainApp(QMainWindow, DontDie_MainWindow):
             datafolder = path.expandvars(r'%LOCALAPPDATA%\dontdie')
 
 
-
-
-        if os.path.exists(datafolder):
-            if os.path.exists(path.expandvars(datafolder + '/userdeathmessages.txt')):
-                deathmessagefile=path.expandvars(datafolder + '/userdeathmessages.txt')
-            else:
-                if getattr(sys, 'frozen', False):
-                    deathmessagefile=os.path.join(sys._MEIPASS, "deathmessages.txt")
-                else:
-                    deathmessagefile="deathmessages.txt"
-                shutil.copy(deathmessagefile, path.expandvars(datafolder + '/userdeathmessages.txt'))
-        else:    
-            if getattr(sys, 'frozen', False):
-                deathmessagefile=os.path.join(sys._MEIPASS, "deathmessages.txt")
-            else:
-                deathmessagefile="deathmessages.txt"
-            os.mkdir(datafolder)
-            shutil.copy(deathmessagefile, path.expandvars(datafolder + '/userdeathmessages.txt'))
-
         if not os.path.exists(path.expandvars(datafolder + '/config')):
             open(path.expandvars(datafolder + '/config'), 'a').close()
+
+
 
         def checkBoxTick():
             if self.checkBox.isChecked():
                 with open(path.expandvars(datafolder + '/config'), 'r') as configfile:
                     config = configfile.readlines()
-                if not config==[]:
-                    config[0] = "True"
+                if not config[0]==[]:
+                    config[0] = "True\n"
                 else:
-                    config=["True"]
+                    config=["True\n"]
                 with open(path.expandvars(datafolder + '/config'), 'w') as configfile:
                     configfile.writelines(config) 
                 self.deathlist.setEnabled(True)
@@ -256,9 +345,9 @@ class MainApp(QMainWindow, DontDie_MainWindow):
                 with open(path.expandvars(datafolder + '/config'), 'r') as configfile:
                     config = configfile.readlines()
                 if not config==[]:
-                    config[0] = "False"
+                    config[0] = "False\n"
                 else:
-                    config=["False"]
+                    config=["False\n"]
                 with open(path.expandvars(datafolder + '/config'), 'w') as configfile:
                     configfile.writelines(config) 
                 self.deathlist.setEnabled(False)
@@ -340,7 +429,9 @@ class MainApp(QMainWindow, DontDie_MainWindow):
 
         with open(path.expandvars(datafolder + '/config'), 'r') as configfile:
             config = configfile.readlines()
-        if config==["True"]:
+            boxticked=config[0]
+            boxticked=boxticked.replace("\n", '')
+        if boxticked=="True":
             self.checkBox.setChecked(True)
         else:
             self.checkBox.setChecked(False)

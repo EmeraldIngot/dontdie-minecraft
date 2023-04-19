@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'mb2.ui'
+# Form implementation generated from reading ui file 'linux-warn.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.2
 #
@@ -33,13 +33,6 @@ class Ui_Form(object):
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.StandardButton.Cancel|QtWidgets.QDialogButtonBox.StandardButton.Ok)
         self.buttonBox.setCenterButtons(False)
         self.buttonBox.setObjectName("buttonBox")
-        self.hidebox = QtWidgets.QCheckBox(parent=Form)
-        self.hidebox.setGeometry(QtCore.QRect(10, 100, 261, 20))
-        font = QtGui.QFont()
-        font.setFamily("Cantarell")
-        font.setPointSize(10)
-        self.hidebox.setFont(font)
-        self.hidebox.setObjectName("hidebox")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -47,5 +40,4 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Don\'t Die Message"))
-        self.infoText.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:11pt;\">Please be sure minecraft is both open and running BEFORE you click ok, or else the program will not work.</span></p></body></html>"))
-        self.hidebox.setText(_translate("Form", "Don\'t show these warnings again"))
+        self.infoText.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:11pt;\">You are running Don\'t Die with sudo. As a result, your window theme may not work. If you want your theme, and running the shutdown command on your system works without sudo, you can run Don\'t Die without sudo.</span></p></body></html>"))

@@ -121,6 +121,9 @@ else:
     os.mkdir(datafolder)
     shutil.copy(deathmessagefile, path.expandvars(datafolder + '/userdeathmessages.txt'))
 
+if not os.path.exists(path.expandvars(datafolder + '/config')):
+    open(path.expandvars(datafolder + '/config'), 'a').close()
+
 
 class MB2(QtWidgets.QWidget, MB2_Form):
     global close
@@ -133,14 +136,18 @@ class MB2(QtWidgets.QWidget, MB2_Form):
         def closefunction():
             global close
             close=1
-            with open(path.expandvars(datafolder + '/config'), 'r') as configfile:
-                config = configfile.readlines()
-            if not 2 > len(config):
-                config[1] = "True\n"
-            else:
-                config=[config[0], "True\n"]
-            with open(path.expandvars(datafolder + '/config'), 'w') as configfile:
-                configfile.writelines(config) 
+            if self.hidebox.isChecked():
+                with open(path.expandvars(datafolder + '/config'), 'r') as configfile:
+                    config = configfile.readlines()
+                if not 2 > len(config):
+                    config[1] = "True\n"
+                else:
+                    if not 1 > len(config):
+                        config=[config[0], "True\n"]
+                    else:
+                        config = ["\n", "True\n"]
+                with open(path.expandvars(datafolder + '/config'), 'w') as configfile:
+                    configfile.writelines(config) 
             self.close()
         def endfunction():
             global close
@@ -321,8 +328,7 @@ class MainApp(QMainWindow, DontDie_MainWindow):
             datafolder = path.expandvars(r'%LOCALAPPDATA%\dontdie')
 
 
-        if not os.path.exists(path.expandvars(datafolder + '/config')):
-            open(path.expandvars(datafolder + '/config'), 'a').close()
+
 
 
 
@@ -429,8 +435,11 @@ class MainApp(QMainWindow, DontDie_MainWindow):
 
         with open(path.expandvars(datafolder + '/config'), 'r') as configfile:
             config = configfile.readlines()
-            boxticked=config[0]
-            boxticked=boxticked.replace("\n", '')
+            if not 1 > len(config):
+                boxticked=config[0]
+                boxticked=boxticked.replace("\n", '')
+            else:
+                boxticked="False"
         if boxticked=="True":
             self.checkBox.setChecked(True)
         else:

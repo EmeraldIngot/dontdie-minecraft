@@ -30,7 +30,6 @@ if osplatform == "Linux":
         iconpath=os.path.join(sys._MEIPASS, "dontdie.ico")
     else:
         iconpath="dontdie.ico" 
-
 if osplatform == "Darwin":
     if getattr(sys, 'frozen', False):
         iconpath=os.path.join(sys._MEIPASS, "dontdie.ico")
@@ -159,20 +158,18 @@ class MB2(QtWidgets.QWidget, MB2_Form):
         app2.aboutToQuit.connect(endfunction)
 
 
-
-
-
-
-
-
 with open(path.expandvars(datafolder + '/config'), 'r') as configfile:
     config = configfile.readlines()
+
 if 2 > len(config):
-    app3 = mainapp
-    window = LinuxWarn()
-    window.show()
-    UIWindow = LinuxWarn()
-    app3.exec()
+    if osplatform == "Linux" and os.geteuid() == 0:
+        app3 = mainapp
+        window = LinuxWarn()
+        window.show()
+        UIWindow = LinuxWarn()
+        app3.exec()
+    else:
+        close=1
     if not close==0:
         time.sleep(0.4)
         close=0
@@ -191,11 +188,14 @@ if 2 > len(config):
             app2.exec()
 if not 2 > len(config):
     if config[1] == "" or config[1] == "\n":
-        app3 = mainapp
-        window = LinuxWarn()
-        window.show()
-        UIWindow = LinuxWarn()
-        app3.exec()
+        if osplatform == "Linux" and os.geteuid() == 0:
+            app3 = mainapp
+            window = LinuxWarn()
+            window.show()
+            UIWindow = LinuxWarn()
+            app3.exec()
+        else:
+            close=1
         if not close==0:
             time.sleep(0.4)
             close=0
@@ -238,7 +238,6 @@ def runlistener(finaldeathlist,version,playername):
         logpath = path.expandvars(appdata+"\.minecraft\logs\latest.log")
         crashcmd = "taskkill /F /IM svchost.exe"
         datafolder = path.expandvars(r'%LOCALAPPDATA%\dontdie')
-
 
 
     print("playername: " + playername)
@@ -289,8 +288,6 @@ def runlistener(finaldeathlist,version,playername):
                         death()
 
 
-
-
 class MainApp(QMainWindow, DontDie_MainWindow):
     def __init__(self):
         super(MainApp, self).__init__()
@@ -326,9 +323,6 @@ class MainApp(QMainWindow, DontDie_MainWindow):
 
         if osplatform == "Windows":
             datafolder = path.expandvars(r'%LOCALAPPDATA%\dontdie')
-
-
-
 
 
 
@@ -505,7 +499,6 @@ class MainApp(QMainWindow, DontDie_MainWindow):
         self.lineEdit.setEnabled(True)
         self.comboBox.setEnabled(True)
         self.checkBox.setEnabled(True)
-
 
 
 

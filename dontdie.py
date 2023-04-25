@@ -224,12 +224,12 @@ def runlistener(finaldeathlist,version,playername):
 
     if osplatform == "Linux":
         logpath = path.expandvars(os.path.expanduser('~') + '/.minecraft/logs/latest.log')
-        crashcmd = "sudo shutdown -h now"
+        crashcmd = "shutdown -h now"
         datafolder = path.expandvars(os.path.expanduser('~') + '/.dontdie')
 
     if osplatform == "Darwin":
-        logpath = path.expandvars(r'/Users' + '/Library/Application Support/minecraft/logs/latest.log')
-        crashcmd = "sudo killall launchd"
+        logpath = path.expandvars(os.path.expanduser('~') + '/Library/Application Support/minecraft/logs/latest.log')
+        crashcmd = "killall launchd"
         datafolder = path.expandvars(os.path.expanduser('~') + '/Library/Application Support/dontdie')
 
     if osplatform == "Windows":

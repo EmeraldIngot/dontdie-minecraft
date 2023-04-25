@@ -230,8 +230,14 @@ or download the source zip and extract it
  - Build executable
  
  `./build_macos.sh`
+ 
+ If ./build_macos.sh returns an error, pyinstaller might not be in your path.
+ 
+ To fix this, edit build_macos.sh in any text editor, and where is says `pyinstaller` replace it with `~/Library/Python/3.11/bin/pyinstaller`
+ 
+ If you are not using Python 3.11, you can substitute the version for another.
 
-.app is available at `dist/dontdie`
+Once it is built, the .app is available at `dist/`
 
 In order to run as root, go to where the .app is, and run the following command
 sudo ./dontdie.app/Contents/MacOS/dontdie
@@ -240,4 +246,5 @@ sudo ./dontdie.app/Contents/MacOS/dontdie
 
 # Other Notes
 
-The new version of Don't Die is currently a pre-release
+The new version of Don't Die is currently a release candidate
+Hopefully, not much will change from the RC to the full release

@@ -241,7 +241,7 @@ def runlistener(finaldeathlist,version,playername):
     if osplatform == "Windows":
         appdata=os.getenv("APPDATA")
         appdatalocal=os.getenv("LOCALAPPDATA")
-        logpath = path.expandvars(appdata+"\.minecraft\logs\latest.log")
+        logpath = path.expandvars(appdata + r'\.minecraft\logs\latest.log')
         crashcmd = "taskkill /F /IM svchost.exe"
         datafolder = path.expandvars(r'%LOCALAPPDATA%\dontdie')
 

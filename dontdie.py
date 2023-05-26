@@ -4,6 +4,7 @@ import sys
 import platform
 from PyQt6 import QtWidgets, uic, QtCore
 from PyQt6.QtGui import QIcon, QPixmap
+#from PyQt6.QtGui import QFontDatabase
 from PyQt6.QtWidgets import QApplication, QMainWindow
 from mb1 import Ui_Form as MB1_Form
 from mb2 import Ui_Form as MB2_Form
@@ -101,7 +102,12 @@ if osplatform == "Darwin":
 if osplatform == "Windows":
     datafolder = path.expandvars(r'%LOCALAPPDATA%\dontdie')
 
-
+# if getattr(sys, 'frozen', False):
+#     cantarellr=os.path.join(sys._MEIPASS, '/Cantarell-Regular.ttf')
+#     QFontDatabase.addApplicationFont(cantarellr)
+# else:
+#     cantarellr=os.path.abspath("Cantarell-Regular.ttf")
+#     QFontDatabase.addApplicationFont(cantarellr)
 
 if os.path.exists(datafolder):
     if os.path.exists(path.expandvars(datafolder + '/userdeathmessages.txt')):

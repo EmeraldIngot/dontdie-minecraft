@@ -1,7 +1,7 @@
 # Don't Die - A Python Program
 A python program that causes your computer to bluescreen whenever you die in Minecraft
 
-# If you want the prerelease with a GUI read below:
+# Run Instructions
 
 ***IMPORTANT Be sure to right click and run this program as administrator or run it with sudo or else it won't work!***
 
@@ -44,9 +44,9 @@ If you are on Linux, navigate to the folder containing the binary and run the fo
 
 </details>
 
-### Remember to read the instructions. Here's the download! 
+### Once you're ready, here's the download! 
 
-https://github.com/EmeraldIngot/dontdie-minecraft/releases/tag/v1.3-rc
+https://github.com/EmeraldIngot/dontdie-minecraft/releases/tag/v1.3
 
 # Requirements
 ***Be sure to right click and run this program as administrator or with sudo or else it won't work!***
@@ -242,9 +242,3 @@ Once it is built, the .app is available at `dist/`
 In order to run as root, go to where the .app is, and run the following command
 sudo ./dontdie.app/Contents/MacOS/dontdie
 </details>
-
-
-# Other Notes
-
-The new version of Don't Die is currently a release candidate
-Hopefully, not much will change from the RC to the full release
